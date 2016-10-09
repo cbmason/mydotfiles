@@ -1,5 +1,3 @@
-"This is for vim-plug plugin management"
-"https://github.com/junegunn/vim-plug"
 call plug#begin()
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 call plug#end()
@@ -51,7 +49,6 @@ ab #e **************************************************************************
 "set wildmode=longest,list
 set wildmenu
 
-
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -91,4 +88,13 @@ augroup END
 
 " In most of my projects, the ctags file is one directory above the src
 set tags=../tags
+
+" Fix Cursor in TMUX
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
