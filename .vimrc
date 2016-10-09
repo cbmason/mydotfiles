@@ -1,3 +1,8 @@
+"This is for vim-plug plugin management"
+"https://github.com/junegunn/vim-plug"
+call plug#begin()
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+call plug#end()
 
 " Turn on line numbers
 set number
